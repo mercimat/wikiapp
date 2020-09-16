@@ -1,0 +1,35 @@
+body {
+    font-family: sans-serif;
+    font-size: 24px;
+    color: #606060;
+    background-color: #fff;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.title {
+    background-color: #a0d1e07a;
+    color: #202020;
+    font-size: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.edit {
+    text-align: center;
+    font-size: 16px;
+    padding-bottom: 20px;
+}
+
+.content {
+    color: #202020;
+}
+
+.form {
+    margin-top: 20px;
+}
+
+a {
+    color: #44a8c1;
+    text-decoration: none;
+}

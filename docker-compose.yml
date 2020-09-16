@@ -1,0 +1,26 @@
+version: "2.0"
+services:
+    mongodb:
+        image: mongo:latest
+        expose:
+            - 27017
+        volumes:
+            - db_data:/data/db
+        networks:
+            - appnet
+
+    wikiapp:
+        build: .
+        image: wikiapp:compose
+        ports:
+            - 8080:8080
+        environment:
+            MONGODB_HOST: mongodb
+        networks:
+            - appnet
+
+networks:
+    appnet:
+
+volumes:
+    db_data:
