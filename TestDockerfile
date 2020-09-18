@@ -1,0 +1,6 @@
+FROM golang:alpine
+RUN apk update && apk upgrade && apk add --no-cache git
+RUN go get -d -v go.mongodb.org/mongo-driver/mongo
+WORKDIR /go/src/github.com/wikiapp/
+COPY . .
+RUN go test -v -vet=off .

@@ -25,7 +25,7 @@ var validPath = regexp.MustCompile("^/(edit|save|view)/([a-zA-Z0-9]+)$")
 var collection *mongo.Collection
 var ctx = context.TODO()
 
-func init() {
+func InitDB() {
     server := "mongodb://localhost:27017/"
     if _, ok := os.LookupEnv("MONGODB_HOST"); ok {
         server = os.ExpandEnv("mongodb://${MONGODB_HOST}:27017/")
@@ -115,10 +115,11 @@ func frontPageHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+    InitDB()
     http.HandleFunc("/", frontPageHandler)
     http.HandleFunc("/view/", makeHandler(viewHandler))
     http.HandleFunc("/edit/", makeHandler(editHandler))
     http.HandleFunc("/save/", makeHandler(saveHandler))
     http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
-    log.Fatal(http.ListenAndServe(":8080", nil))
+    log.Fatal(http.ListenAndServe(":8090", nil))
 }
