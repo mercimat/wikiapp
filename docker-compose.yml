@@ -13,7 +13,7 @@ services:
         build: .
         image: wikiapp:compose
         ports:
-            - 8080:8080
+            - 8090:8090
         environment:
             MONGODB_HOST: mongodb
         networks:
