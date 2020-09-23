@@ -9,6 +9,11 @@
         <div class="title">
             <h1>Editing {{.Title}}</h1>
         </div>
+
+        <div class="from">
+            <h3>Hello from host {{.Host}}</h3>
+        </div>
+
         <div class="form">
             <form action="/save/{{.Title}}" method="POST">
                 <div><textarea name="body" rows="20" cols="80">{{printf "%s" .Body}}</textarea></div>
