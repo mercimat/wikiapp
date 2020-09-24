@@ -12,7 +12,7 @@ services:
     wikiapp:
         image: mercimat/wikiapp_docker_swarm:latest
         ports:
-            - 8090:8090
+            - 8089:8090
         environment:
             MONGODB_HOST: mongodb
         deploy:
