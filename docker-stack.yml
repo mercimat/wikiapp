@@ -1,0 +1,42 @@
+version: "3.0"
+services:
+    mongodb:
+        image: mongo:latest
+        expose:
+            - 27017
+        volumes:
+            - db_data:/data/db
+        networks:
+            - appnet
+
+    wikiapp:
+        image: mercimat/wikiapp_docker_swarm:v0
+        ports:
+            - 8090:8090
+        environment:
+            MONGODB_HOST: mongodb
+        deploy:
+            replicas: 3
+            update_config:
+                parallelism: 2
+                delay: 30s
+        networks:
+            - appnet
+
+    visualizer:
+        image: dockersamples/visualizer:stable
+        ports:
+            - 8091:8080
+        stop_grace_period: 1m30s
+        volumes:
+            - "/var/run/docker.sock:/var/run/docker.sock"
+        deploy:
+            placement:
+                constraints: [node.role == manager]
+        
+
+networks:
+    appnet:
+
+volumes:
+    db_data:
