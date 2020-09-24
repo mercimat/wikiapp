@@ -10,7 +10,7 @@ services:
             - appnet
 
     wikiapp:
-        image: mercimat/wikiapp_docker_swarm:v0
+        image: mercimat/wikiapp_docker_swarm:latest
         ports:
             - 8090:8090
         environment:
