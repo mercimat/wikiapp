@@ -33,3 +33,9 @@ a {
     color: #44a8c1;
     text-decoration: none;
 }
+
+.from {
+    background-color: #f5f5f5;
+    line-height: 1.6;
+    font-size: 0.7em;
+}
