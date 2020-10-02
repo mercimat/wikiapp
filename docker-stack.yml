@@ -10,9 +10,9 @@ services:
             - appnet
 
     wikiapp:
-        image: mercimat/wikiapp_docker_swarm:latest
+        image: mercimat/wikiapp:latest
         ports:
-            - 8089:8090
+            - 8090:8090
         environment:
             MONGODB_HOST: mongodb
         deploy:
@@ -33,7 +33,7 @@ services:
         deploy:
             placement:
                 constraints: [node.role == manager]
-        
+
 
 networks:
     appnet:
